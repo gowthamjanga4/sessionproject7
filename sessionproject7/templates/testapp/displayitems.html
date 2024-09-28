@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Display Items Page</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
+</head>
+<body>
+    <div class="container" align="center">
+        <h1>Display Items Page</h1>
+        {% if request.session %}
+          <table border="1">
+              <thead>
+                    <th>Item</th>
+                    <th>Quantity</th>
+              </thead>
+              {% for key,value in request.session.items %}
+              <tbody>
+                    <td>{{key}}</td>
+                    <td>{{value}}</td>
+              </tbody>
+              {% endfor %}
+          </table>
+         {% else %}
+            <h1>No Records Found...</h1>
+        {% endif %}
+    </div>
+</body>
+</html>
